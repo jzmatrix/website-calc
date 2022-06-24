@@ -13,6 +13,11 @@ RUN apt update && \
     /bin/cp /usr/share/zoneinfo/America/New_York /etc/localtime && \
     rm -rf /var/www/html/*
 ################################################################################
+ADD https://github.com/zmartzone/mod_auth_openidc/releases/download/v2.4.11.2/libapache2-mod-auth-openidc_2.4.11.2-1.buster+1_amd64.deb /tmp/libapache2-mod-auth-openidc_2.4.11.2-1.buster+1_amd64.deb
+RUN dpkg -i /tmp/libapache2-mod-auth-openidc_2.4.11.2-1.buster+1_amd64.deb ; echo 0 && \
+    apt-get -f -y install && \
+    a2enmod auth_openidc
+################################################################################
 ADD config/php7/php.ini /etc/php/7.4/apache2/php.ini
 ADD config/apache2/apache2.conf /etc/apache2/apache2.conf
 ADD config/apache2/000-default.conf /etc/apache2/sites-available/000-default.conf
