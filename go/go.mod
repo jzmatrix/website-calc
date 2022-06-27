@@ -1,4 +1,4 @@
-module ziemba.net/calc
+module github.com/jzmatrix/website-calc/go
 
 go 1.18
 

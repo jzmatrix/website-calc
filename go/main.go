@@ -5,7 +5,7 @@ package main
 import (
 	"fmt"
 
-	_ "ziemba.net/calc/handlers"
+	_ "github.com/jzmatrix/website-calc/go/localHandlers"
 )
 
 //"net/http"
@@ -32,7 +32,7 @@ func main() {
 }
 */
 func main() {
-	fmt.Println(handlers.initHandlers())
+	fmt.Println(initHandlers())
 	/*
 
 		// Declare a new router
