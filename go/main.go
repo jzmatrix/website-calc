@@ -2,12 +2,6 @@
 
 package main
 
-import (
-	"fmt"
-
-	_ "github.com/jzmatrix/website-calc/go/localHandlers"
-)
-
 //"net/http"
 
 //"github.com/gorilla/mux"
@@ -32,7 +26,8 @@ func main() {
 }
 */
 func main() {
-	fmt.Println(initHandlers())
+	localHandlers.initHandlers()
+	// fmt.Println(initHandlers())
 	/*
 
 		// Declare a new router
