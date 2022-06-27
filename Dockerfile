@@ -1,9 +1,13 @@
-FROM jzmatrix/baseimage:debian10_apache24_php74_finance_openidc_20220624_1529
-################################################################################
-RUN apt update && \
-    apt -y upgrade 
-################################################################################
-ADD www /var/www/html
-RUN chmod -R 755 /var/www/html/*
-################################################################################
-CMD [ "/opt/startServices.sh" ]
+FROM golang:1.16-alpine
+
+WORKDIR /app
+
+ADD go ./
+
+RUN go mod download
+
+RUN go build -o /website-calc
+
+EXPOSE 80
+
+CMD [ "/website-calc" ]
